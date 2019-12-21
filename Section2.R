@@ -170,7 +170,12 @@ library("ggplot2")
 p <- ggplot(data = fin)
 p + geom_point(aes(x = Revenue, y = Expenses, color = Industry, size = Profit))
 
-#-------------------------Boxplot #2----------------------------------------------------
+#-------------------------Scatterplot #2----------------------------------------------------
 q <- ggplot(data = fin, aes(x = Revenue, y = Expenses, colour = Industry))
 q + geom_point()
 q + geom_point() + geom_smooth(fill = NA, size = 1.2)
+
+#----------------------------Boxplot-----------------------------------------------
+r <- ggplot(data = fin, aes(x = Industry, y = Growth, colour = Industry))
+r + geom_boxplot(size = 1)
+r + geom_jitter() + geom_boxplot(size = 1, alpha = 0.5, outlier.colour = NA) 
