@@ -162,3 +162,15 @@ fin[is.na(fin$Expenses), "Expenses"] <- fin[is.na(fin$Expenses), "Revenue"] - fi
 fin[15, ]
 
 fin[!complete.cases(fin), ] #As the inception year is not important for our analysis, we could just leave that field vacant.
+
+
+#-------------------------Done with the data cleaning part, now onto the visualisation part----------------------------------------
+  #-----------------------------Scatterplot(bubbleplot)--------------------------------------
+library("ggplot2")
+p <- ggplot(data = fin)
+p + geom_point(aes(x = Revenue, y = Expenses, color = Industry, size = Profit))
+
+#-------------------------Boxplot #2----------------------------------------------------
+q <- ggplot(data = fin, aes(x = Revenue, y = Expenses, colour = Industry))
+q + geom_point()
+q + geom_point() + geom_smooth(fill = NA, size = 1.2)
